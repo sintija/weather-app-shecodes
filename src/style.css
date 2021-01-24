@@ -1,0 +1,235 @@
+/*Primary styles*/
+html body,
+span a {
+    font-family: "Montserrat", sans-serif;
+    color: #2f2c42;
+    text-decoration: none;
+}
+
+body {
+    background-image: linear-gradient(to top,
+            #d9afd9 0%,
+            #97d9e1 100%) !important;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.open-source-link {
+    text-decoration: underline;
+}
+
+#current-city,
+#weather-description {
+    text-transform: capitalize;
+}
+
+/*Card styles*/
+#card {
+    margin-top: 3rem;
+    overflow: hidden;
+    border: none;
+    border-radius: 20px;
+
+    background-image: linear-gradient(to top,
+            #f3e7e9 0%,
+            #e3eeff 99%,
+            #e3eeff 100%);
+}
+
+.card-top {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+
+
+.card-middle-body {
+    padding: 0 5rem;
+}
+
+.card-bottom {
+    width: 100%;
+    margin-top: 3rem;
+    padding: 2rem;
+}
+
+.card-middle-body .text-wrapper {
+    padding-top: 5rem;
+}
+
+/*Card Text Styles*/
+.temperature,
+.temperature-unit {
+    font-size: 5rem;
+    font-weight: 800;
+    display: inline;
+}
+
+.wind,
+.chance-of-rain,
+#humidity {
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+.measure {
+    position: relative;
+    font-size: 1.2rem;
+    top: -2.5rem;
+
+}
+
+.check-additonal-hours {
+    display: inline;
+    text-align: center;
+    font-weight: 800;
+}
+
+.additional-time,
+.additonal-degree-info {
+    font-size: 0.6rem;
+    text-align: center;
+    display: block;
+    font-weight: 800;
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+}
+
+
+/*Card image and icon styles*/
+.illustration img {
+    width: 25rem;
+}
+
+.primary-weather-icon {
+    width: 3rem;
+}
+
+.weather-icon {
+    width: 1.5rem;
+    display: block;
+    margin: 0 auto;
+}
+
+.weather-icon-small {
+    width: 1rem;
+}
+
+/*search bar and search button*/
+.input-group .form-control {
+    border: 0;
+}
+
+.input-group-append .search-button {
+    color: #fff;
+    background-image: linear-gradient(to top,
+            #a7a6cb 0%,
+            #8989ba 52%,
+            #8989ba 100%);
+    border: none;
+    border-radius: none;
+    transition: all 0.5s ease-in-out;
+}
+
+.input-group-append .search-button:hover {
+    color: #fff;
+    scale: 0.8;
+
+    transform: scale(1.1);
+}
+
+/*Additonal weather*/
+.additional-weather-wrapper .additional-weather-info {
+    margin-top: 1rem;
+}
+
+.current-location-icon {
+    height: 1.5rem;
+    border: none;
+
+}
+
+/*Media Queries */
+
+/*Mobile*/
+@media (max-width: 770px) {
+    .card-row .card-column {
+        width: 35rem;
+    }
+
+    .illustration img {
+        width: 12rem;
+    }
+
+    .temperature {
+        font-size: 2rem;
+        margin-bottom: 0;
+    }
+
+    .measure {
+        position: relative;
+        font-size: 0.9rem;
+        top: -0.9rem;
+    }
+
+    .weather-message {
+        font-size: 0.72rem;
+    }
+
+    .card-top {
+        padding: 0;
+    }
+
+    .wind,
+    .chance-of-rain {
+        font-size: 0.63rem;
+    }
+
+    .card-bottom {
+        padding: 0;
+        padding-bottom: 2rem;
+    }
+
+    .card-main-body {
+        padding: 0 2rem;
+    }
+
+    .card-middle-body .text-wrapper {
+        margin-top: 2rem;
+    }
+
+    .card-middle-body {
+        padding: 0;
+    }
+}
+
+
+#current-location-addon {
+    border: none;
+}
+
+#current-location-addon:hover {
+    cursor: pointer;
+}
+
+#current-location-addon img {
+    height: 1.5rem;
+}
+
+
+
+/*Desktop*/
+@media (min-width: 780px) {
+    .card-row .card-column {
+        width: 50rem;
+    }
+
+    .col-6 .col-smaller {
+        width: 40%;
+    }
+
+    .measure {
+        margin-left: 0.4rem;
+
+    }
+}
