@@ -24,25 +24,42 @@ function showTemperature(response) {
     let description = response.data.weather[0].description
 
 
+    //Change illustration based on weather needs changing
 
-
-    if (description === "clear sky") {
+    if (iconCode === "01d") {
 
         let mainImageUrl = "./images/illustrations/sunny.png"
         mainImage.setAttribute("src", mainImageUrl);
 
+    } else if (iconCode === "01n") {
+        mainImageUrl = "./images/illustrations/night.png"
+        mainImage.setAttribute("src", mainImageUrl);
+
+    } else if (iconCode === "02d" || iconCode === "02n" || iconCode === "03d" || iconCode === "03n" || iconCode === "04d" || iconCode === "04n") {
+
+        mainImageUrl = "./images/illustrations/cloudy.png"
+        mainImage.setAttribute("src", mainImageUrl);
+
+    } else if (iconCode === "09d" || iconCode === "09n" || iconCode === "10d" || iconCode === "10n") {
+        mainImageUrl = "./images/illustrations/rain.png"
+        mainImage.setAttribute("src", mainImageUrl);
+
+    } else if (iconCode === "11d" || iconCode === "11n") {
+        mainImageUrl = "./images/illustrations/thunder.png"
+        mainImage.setAttribute("src", mainImageUrl);
+
+    } else if (iconCode === "13d" || iconCode === "13n") {
+        mainImageUrl = "./images/illustrations/snow.png"
+        mainImage.setAttribute("src", mainImageUrl);
+
+
+    } else if (iconCode === "50d" || iconCode === "50n") {
+
+        mainImageUrl = "./images/illustrations/misty.png"
+        mainImage.setAttribute("src", mainImageUrl);
+
     }
 
-
-
-
-
-
-
-    // let iconURL = "http://openweathermap.org/img/w/" + iconCode + ".png";
-
-
-    // iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${}@2x.png`);
 
 
 
