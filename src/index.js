@@ -59,18 +59,28 @@ function showTemperature(response) {
         mainImage.setAttribute("src", mainImageUrl);
 
     }
-
-
-
-
-
-
-
-
-
     currentTimeMessage.innerHTML = "yahooo";
 
     console.log(response.data);
+}
+
+
+function handleSubmit(event) {
+    event.preventDefault();
+
+    let cityInput = document.querySelector("#search-input");
+    search(cityInput.value);
+}
+
+
+function search(city) {
+
+    let apiKey = "a4f791ec3190105377dcfdf1cf72f27d";
+    let apiEndPoint = "https://api.openweathermap.org/data/2.5/weather?";
+    let unit = 'metric';
+    let apiUrl = `${apiEndPoint}q=${city}&appid=${apiKey}&units=${unit}`;
+    axios.get(apiUrl).then(showTemperature);
+
 }
 
 
@@ -80,11 +90,10 @@ function showTemperature(response) {
 
 
 
-let apiKey = "a4f791ec3190105377dcfdf1cf72f27d";
-let apiEndPoint = "https://api.openweathermap.org/data/2.5/weather?";
-let defaultLocation = "London";
-let unit = 'metric';
-let apiUrl = `${apiEndPoint}q=${defaultLocation}&appid=${apiKey}&units=metric`;
 
 
-axios.get(apiUrl).then(showTemperature);
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
+
+search("London");
