@@ -6,6 +6,10 @@ span a {
     text-decoration: none;
 }
 
+span a {
+    color: #57aaff;
+}
+
 body {
     background-image: linear-gradient(to top,
             #d9afd9 0%,
@@ -137,6 +141,15 @@ body {
 
     transform: scale(1.1);
 }
+
+/*API details*/
+
+.active {
+    color: #2f2c42;
+    cursor: default;
+}
+
+
 
 /*Additonal weather*/
 .additional-weather-wrapper .additional-weather-info {

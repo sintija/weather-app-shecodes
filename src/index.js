@@ -8,9 +8,10 @@ function showTemperature(response) {
 
     let mainImage = document.querySelector("#main-illustration");
 
+    celsiusTemp = response.data.main.temp;
 
     let currentTimeMessage = document.querySelector("#current-time");
-    temperatureElement.innerHTML = Math.round(response.data.main.temp);
+    temperatureElement.innerHTML = Math.round(celsiusTemp);
     cityElement.innerHTML = response.data.name;
     descriptionElement.innerHTML = response.data.weather[0].description;
     humidity.innerHTML = `${response.data.main.humidity} %`;
@@ -84,12 +85,46 @@ function search(city) {
 }
 
 
+function showFahrTemp(event) {
+    event.preventDefault();
+
+    let fahrTemp = (celsiusTemp * 9) / 5 + 32;
+
+    let tempElement = document.querySelector("#current-temperature");
+    tempElement.innerHTML = Math.round(fahrTemp);
+    //remove the active class celsius link
+    celsiusLink.classList.remove("active");
+    fahrenheitLink.classList.add("active");
+
+
+
+}
+
+function showCelsiusTemp(event) {
+
+    event.preventDefault();
+    let tempElement = document.querySelector("#current-temperature");
+    tempElement.innerHTML = Math.round(celsiusTemp);
+
+    celsiusLink.classList.add("active");
+    fahrenheitLink.classList.remove("active");
+
+}
 
 
 
 
 
 
+let celsiusTemp = null;
+
+
+let fahrenheitLink = document.querySelector("#degreesFahr");
+fahrenheitLink.addEventListener("click", showFahrTemp);
+
+
+let celsiusLink = document.querySelector("#degreesCelsius");
+celsiusLink.addEventListener("click", showCelsiusTemp);
 
 
 
