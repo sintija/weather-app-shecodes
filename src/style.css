@@ -12,6 +12,7 @@ span a {
 
 span a {
     transition: all 0.2s ease-in;
+    color: #67a9f8;
 }
 
 body {
@@ -61,7 +62,7 @@ body {
 }
 
 .card-middle-body .text-wrapper {
-    padding-top: 4rem;
+    padding-top: 2.5rem;
 }
 
 /*Card Text Styles*/
@@ -199,7 +200,7 @@ body {
 
     .illustration img {
         width: 14rem;
-        margin-top: 2rem;
+        margin-top: 4rem;
     }
 
     .temperature {

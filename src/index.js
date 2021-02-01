@@ -1,8 +1,6 @@
 //What needs to be don 
 //Add currect location
-//Add loading bar optional 
 //add error message oops try again 
-//Fix displaying broken image
 
 
 //get Last updated date
@@ -50,36 +48,85 @@ function showTemperature(response) {
 
 // get related weather image and icon
 function getweatherImage(response) {
+
+    let temp = response.data.main.temp;
     let iconElement = document.querySelector("#primary-icon");
     let mainImage = document.querySelector("#main-illustration");
     let iconCode = response.data.weather[0].icon;
     let iconURL = "./images/icons/" + iconCode + ".png";
     iconElement.setAttribute("src", iconURL);
     iconElement.setAttribute("alt", response.data.weather[0].description);
+    let mainImageUrl;
+    let changeImage = () => mainImage.setAttribute("src", mainImageUrl);
+    let cloudyIcons = ["02d", "02n", "03d", "03n", "04d", "04n"];
+    let rainyIcons = ["09d", "09n", "10d", "10n"];
+    let thunderIcons = ["11d", "11n"];
+    let snowIcons = ["13d", "13n"];
+    let mistIcons = ["50d", "50n"];
+
     //change illustration based on weather
-    if (iconCode === "01d") {
-        let mainImageUrl = "./images/illustrations/sunny.png"
-        mainImage.setAttribute("src", mainImageUrl);
-    } else if (iconCode === "01n") {
-        mainImageUrl = "./images/illustrations/night.png"
-        mainImage.setAttribute("src", mainImageUrl);
-    } else if (iconCode === "02d" || iconCode === "02n" || iconCode === "03d" || iconCode === "03n" || iconCode === "04d" || iconCode === "04n") {
-        mainImageUrl = "./images/illustrations/cloudy.png"
-        mainImage.setAttribute("src", mainImageUrl);
-    } else if (iconCode === "09d" || iconCode === "09n" || iconCode === "10d" || iconCode === "10n") {
-        mainImageUrl = "./images/illustrations/rain.png"
-        mainImage.setAttribute("src", mainImageUrl);
-    } else if (iconCode === "11d" || iconCode === "11n") {
-        mainImageUrl = "./images/illustrations/thunder.png"
-        mainImage.setAttribute("src", mainImageUrl);
-    } else if (iconCode === "13d" || iconCode === "13n") {
-        mainImageUrl = "./images/illustrations/snow.png"
-        mainImage.setAttribute("src", mainImageUrl);
-    } else if (iconCode === "50d" || iconCode === "50n") {
-        mainImageUrl = "./images/illustrations/misty.png"
-        mainImage.setAttribute("src", mainImageUrl);
+
+    switch (iconCode) {
+        case "01d":
+            if (temp < -1) {
+                mainImageUrl = "./images/illustrations/cold.png";
+            } else {
+                mainImageUrl = "./images/illustrations/sunny.png";
+            }
+            changeImage();
+            break;
+        case "01n":
+            if (temp < -1) {
+                mainImageUrl = "./images/illustrations/cold.png";
+            } else {
+                mainImageUrl = "./images/illustrations/night.png";
+            }
+            changeImage();
+            break;
+        case cloudyIcons[0]:
+        case cloudyIcons[1]:
+        case cloudyIcons[2]:
+        case cloudyIcons[3]:
+        case cloudyIcons[4]:
+        case cloudyIcons[5]:
+            if (temp < -1) {
+                mainImageUrl = "./images/illustrations/cold.png";
+            } else {
+                mainImageUrl = "./images/illustrations/cloudy.png";
+            }
+            changeImage();
+            break;
+        case rainyIcons[0]:
+        case rainyIcons[1]:
+        case rainyIcons[2]:
+        case rainyIcons[3]:
+            mainImageUrl = "./images/illustrations/rain.png";
+            changeImage();
+            break;
+        case thunderIcons[0]:
+        case thunderIcons[1]:
+            mainImageUrl = "./images/illustrations/thunder.png";
+            changeImage();
+            break;
+        case snowIcons[0]:
+        case snowIcons[1]:
+            mainImageUrl = "./images/illustrations/snow.png";
+            changeImage();
+            break;
+        case mistIcons[0]:
+        case mistIcons[1]:
+            if (temp < -1) {
+                mainImageUrl = "./images/illustrations/cold.png";
+            } else {
+                mainImageUrl = "./images/illustrations/misty.png";
+            }
+            changeImage();
+            break;
     }
+
 }
+
+
 
 //get city input value
 function handleSubmit(event) {
@@ -119,26 +166,29 @@ function search(city) {
 
 
     axios.get(apiUrl).then((response) => {
-        console.log(response);
-
-        let cityName = document.querySelector(".city-not-found");
-
-        if (response.status !== 200) {
-            cityName.innerHTML = "Woops, we could not find this place, try another city";
-        } else {
+            console.log(response);
             cityName.innerHTML = "";
             showTemperature(response);
             getweatherImage(response);
-        }
 
+        })
 
-
-    });
+        .catch(function (error) {
+            if (error.response.status === 404) {
+                let cityName = document.querySelector(".city-not-found");
+                cityName.innerHTML = "Woops, we could not find this place, try another city";
+            }
+            // handle error
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+        });
 
     // axios.get(apiUrl).then(showTemperature);
     // axios.get(apiUrl).then(getweatherImage);
     apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${unit}`;
     axios.get(apiUrl).then(displayForecast);
+
 }
 
 //convert  to farh units
