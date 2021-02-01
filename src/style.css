@@ -4,10 +4,14 @@ span a {
     font-family: "Montserrat", sans-serif;
     color: #2f2c42;
     text-decoration: none;
+    height: 115vh;
 }
 
+
+
+
 span a {
-    color: #57aaff;
+    transition: all 0.2s ease-in;
 }
 
 body {
@@ -18,7 +22,7 @@ body {
     height: 100vh;
 }
 
-.open-source-link {
+.open-source {
     text-decoration: underline;
 }
 
@@ -52,13 +56,12 @@ body {
 }
 
 .card-bottom {
-    width: 100%;
-    margin-top: 3rem;
-    padding: 2rem;
+    margin-top: 1rem;
+    padding: 1rem;
 }
 
 .card-middle-body .text-wrapper {
-    padding-top: 5rem;
+    padding-top: 4rem;
 }
 
 /*Card Text Styles*/
@@ -84,7 +87,7 @@ body {
 }
 
 .check-additonal-hours {
-    display: inline;
+    display: block;
     text-align: center;
     font-weight: 800;
 }
@@ -95,8 +98,8 @@ body {
     text-align: center;
     display: block;
     font-weight: 800;
-    margin-top: 0.4rem;
-    margin-bottom: 0.4rem;
+
+
 }
 
 
@@ -107,12 +110,13 @@ body {
 
 .primary-weather-icon {
     width: 3rem;
+    margin-bottom: 0.5rem;
 }
 
 .weather-icon {
     width: 1.5rem;
     display: block;
-    margin: 0 auto;
+    margin: 10px auto;
 }
 
 .weather-icon-small {
@@ -143,7 +147,6 @@ body {
 }
 
 /*API details*/
-
 .active {
     color: #2f2c42;
     cursor: default;
@@ -152,15 +155,39 @@ body {
 
 
 /*Additonal weather*/
-.additional-weather-wrapper .additional-weather-info {
-    margin-top: 1rem;
-}
-
 .current-location-icon {
     height: 1.5rem;
     border: none;
 
 }
+
+
+.city-error {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.city-not-found {
+    font-size: 0.6rem;
+    font-weight: bold;
+}
+
+
+.open-source {
+    display: block;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+
+#current-location-addon:hover {
+    cursor: pointer;
+}
+
+#current-location-addon img {
+    height: 1.5rem;
+}
+
 
 /*Media Queries */
 
@@ -171,7 +198,8 @@ body {
     }
 
     .illustration img {
-        width: 12rem;
+        width: 14rem;
+        margin-top: 2rem;
     }
 
     .temperature {
@@ -207,13 +235,18 @@ body {
         padding: 0 2rem;
     }
 
-    .card-middle-body .text-wrapper {
-        margin-top: 2rem;
-    }
 
     .card-middle-body {
         padding: 0;
     }
+
+    html body,
+    span a {
+        height: 140vh;
+    }
+
+
+
 }
 
 
@@ -225,14 +258,6 @@ body {
             #e3eeff 100%);
 }
 
-#current-location-addon:hover {
-    cursor: pointer;
-}
-
-#current-location-addon img {
-    height: 1.5rem;
-}
-
 
 
 /*Desktop*/
@@ -242,11 +267,21 @@ body {
     }
 
     .col-6 .col-smaller {
-        width: 40%;
+        width: 30%;
     }
 
     .measure {
         margin-left: 0.4rem;
 
     }
+}
+
+/*Landscape*/
+@media (min-width: 320px) and (max-width: 720px) and (orientation: landscape) {
+
+    html body,
+    span a {
+        height: 170vh;
+    }
+
 }

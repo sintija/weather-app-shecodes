@@ -36,8 +36,6 @@
                                         <input
                                             id="search-input"
                                             type="text"
-                                            autocomplete="off"
-                                            autofocus="on"
                                             class="form-control"
                                             placeholder="enter city"
                                             aria-label="enter city"
@@ -54,16 +52,23 @@
                         </div>
                         <!--Card Top End -->
                         <!--Card Middle Body Start -->
+                        <!--City not found message start -->
+                        <div class="row">
+                            <div class="col-12 city-error">
+                                <span class="city-not-found"></span>
+                            </div>
+                        </div>
+                        <!--City not found message end -->
                         <div class="row card-middle-body">
                             <!--Card Middle Text Start -->
                             <div class="col-6 text-wrapper">
                                 <img
                                     class="primary-weather-icon"
                                     id="primary-icon"
-                                    src=""
-                                    alt="suncloudrain"
+                                    src="./images/icons/nothing.png"
+                                    alt="weather-icon"
                                 >
-                                <h2 class="city-name" id="current-city"></h2>
+                                <h2 class="city-name" id="current-city">London</h2>
                                 <p id="current-time"></p>
                                 <p class="temperature" id="current-temperature"></p>
                                 <span class="temperature-unit measure" id="temperature-meassure">
@@ -77,7 +82,7 @@
                                         <div class="row additional-weather-info">
                                             <div class="col-6 col-smaller">
                                                 <img class="weather-icon-small" src="images/icons/winds.svg" alt="winds">
-                                                <span class="wind" id="wind-speed">18 m/s</span>
+                                                <span class="wind" id="wind-speed"></span>
                                             </div>
                                             <div class="col-6 col-smaller">
                                                 <img class="weather-icon-small" src="./images/icons/raindrops.svg" alt="raindrops">
@@ -91,7 +96,7 @@
                             <!--Illustration Start -->
                             <div class="col-6 illustration-col">
                                 <div class="illustration">
-                                    <img id="main-illustration" src="" alt="windy">
+                                    <img id="main-illustration" src="./images/illustrations/Spinner-0.1s-68px.svg" alt="windy">
                                 </div>
                                 <!--Illustration End -->
                             </div>
@@ -106,7 +111,7 @@
                         </div>
                         <!--Card Bottom End -->
                     </div>
-                    <span>
+                    <span class="open-source">
                         <a class="open" target="_blank" href="https://github.com/sintija/get-weather-app"> Open Source</a>
                         by
                     Sintija
@@ -116,6 +121,6 @@
             <!--Card End -->
         </div>
         <!--Main Container End -->
+        <script src="/src/index.js"></script>
     </body>
-    <script src="/src/index.js"></script>
 </html>

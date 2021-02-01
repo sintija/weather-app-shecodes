@@ -1,3 +1,10 @@
+//What needs to be don 
+//Add currect location
+//Add loading bar optional 
+//add error message oops try again 
+//Fix displaying broken image
+
+
 //get Last updated date
 function formatDate(timestamp) {
     let date = new Date(timestamp);
@@ -17,7 +24,7 @@ function formatHours(timestamp) {
     if (minutes < 10) {
         minutes = `0${minutes}`;
     }
-    return `${hours}: ${minutes}`;
+    return `${hours}:${minutes}`;
 }
 
 function showTemperature(response) {
@@ -33,10 +40,12 @@ function showTemperature(response) {
     celsiusTemp = response.data.main.temp;
     temperatureElement.innerHTML = Math.round(celsiusTemp);
     cityElement.innerHTML = response.data.name;
+
     descriptionElement.innerHTML = response.data.weather[0].description;
     humidity.innerHTML = `${response.data.main.humidity} %`;
     windElement.innerHTML = Math.round(response.data.wind.speed) + " km/h";
     dateElement.innerHTML = formatDate(response.data.dt * 1000);
+
 }
 
 // get related weather image and icon
@@ -76,8 +85,12 @@ function getweatherImage(response) {
 function handleSubmit(event) {
     event.preventDefault();
     let cityInput = document.querySelector("#search-input");
+
     search(cityInput.value);
+
 }
+
+
 
 //get additonal forecast data from API
 function displayForecast(response) {
@@ -91,7 +104,7 @@ function displayForecast(response) {
 <div class="col-3">
     <span class="additional-time">${formatHours(forecast.dt * 1000)}</span>
     <img class="weather-icon" src="./images/icons/${forecast.weather[0].icon}.png" alt="sun">
-    <span class="additonal-degree-info">${maxTemp}°</span>
+    <span class="additonal-degree-info">max ${maxTemp}°</span>
 </div>`;
 
     }
@@ -103,8 +116,27 @@ function search(city) {
     let apiEndPoint = "https://api.openweathermap.org/data/2.5/weather?";
     let unit = 'metric';
     let apiUrl = `${apiEndPoint}q=${city}&appid=${apiKey}&units=${unit}`;
-    axios.get(apiUrl).then(showTemperature);
-    axios.get(apiUrl).then(getweatherImage);
+
+
+    axios.get(apiUrl).then((response) => {
+        console.log(response);
+
+        let cityName = document.querySelector(".city-not-found");
+
+        if (response.status !== 200) {
+            cityName.innerHTML = "Woops, we could not find this place, try another city";
+        } else {
+            cityName.innerHTML = "";
+            showTemperature(response);
+            getweatherImage(response);
+        }
+
+
+
+    });
+
+    // axios.get(apiUrl).then(showTemperature);
+    // axios.get(apiUrl).then(getweatherImage);
     apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${unit}`;
     axios.get(apiUrl).then(displayForecast);
 }
