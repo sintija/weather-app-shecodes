@@ -1,6 +1,8 @@
-//Add currect location
-//Clean the code and variables a bit
-
+//Add Read ME file 
+// fix background issues on the firefox 
+// Update the styling of the open source by Sintija
+// Explore the animations on the search button 
+// Find the responsive image to add the schreenshots 
 
 (function () {
 
