@@ -1,5 +1,7 @@
 # weather-app-shecodesDescription
-Weather web application desc. 
+Weather web application desc.
+
+ Currently in development
 
 Technologies used 
 
