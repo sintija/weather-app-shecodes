@@ -1,4 +1,3 @@
-//What needs to be don 
 //Add currect location
 //add error message oops try again 
 
@@ -167,6 +166,7 @@ function search(city) {
 
     axios.get(apiUrl).then((response) => {
             console.log(response);
+            let cityName = document.querySelector(".city-not-found");
             cityName.innerHTML = "";
             showTemperature(response);
             getweatherImage(response);
