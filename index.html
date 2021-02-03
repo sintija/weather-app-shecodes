@@ -1,126 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Weather App</title>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <link rel="stylesheet" href="/src/style.css">
-        <script src="https://use.fontawesome.com/96ba741ff3.js"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;800&amp;display=swap" rel="stylesheet">
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
-            crossorigin="anonymous"
-        >
-    </head>
-    <body>
-        <!--Main Container -->
-        <div class="container">
-            <!--Card -->
-            <div class="row card-row justify-content-center">
-                <div class="col-12 card-column">
-                    <div id="card" class="card card-main-body shadow">
-                        <!--Card Top -->
-                        <div class="card-top">
-                            <div class="row">
-                                <!--Search bar start -->
-                                <div class="col-12 input-col">
-                                    <form class="input-group" id="search-form">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" id="current-location-addon">
-                                                <img class="current-location" src="/images/icons/current-location.svg" alt="">
-                                            </span>
-                                        </div>
-                                        <input
-                                            id="search-input"
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="enter city"
-                                            aria-label="enter city"
-                                        >
-                                        <!--Search bar button start -->
-                                        <div class="input-group-append">
-                                            <input class="btn button search-button" type="submit" value="Search">
-                                        </div>
-                                        <!--Search bar button end -->
-                                    </form>
-                                </div>
-                                <!--Search bar end -->
-                            </div>
-                        </div>
-                        <!--Card Top End -->
-                        <!--Card Middle Body Start -->
-                        <!--City not found message start -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="/src/style.css">
+    <script src="https://use.fontawesome.com/96ba741ff3.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;800&amp;display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+
+<body>
+    <!--Main Container -->
+    <div class="container">
+        <!--Card -->
+        <div class="row card-row justify-content-center">
+            <div class="col-12 card-column">
+                <div id="card" class="card card-main-body shadow">
+                    <!--Card Top -->
+                    <div class="card-top">
                         <div class="row">
-                            <div class="col-12 city-error">
-                                <span class="city-not-found"></span>
+                            <!--Search bar start -->
+                            <div class="col-12 input-col">
+                                <form class="input-group" id="search-form">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="current-location-addon">
+                                            <img class="current-location" src="/images/icons/current-location.svg"
+                                                alt="">
+                                        </span>
+                                    </div>
+                                    <input id="search-input" type="text" class="form-control" placeholder="enter city"
+                                        aria-label="enter city" autocomplete="off" autofocus="on">
+                                    <!--Search bar button start -->
+                                    <div class="input-group-append">
+                                        <input class="btn button search-button" type="submit" value="Search">
+                                    </div>
+                                    <!--Search bar button end -->
+                                </form>
                             </div>
+                            <!--Search bar end -->
                         </div>
-                        <!--City not found message end -->
-                        <div class="row card-middle-body">
-                            <!--Card Middle Text Start -->
-                            <div class="col-6 text-wrapper">
-                                <img
-                                    class="primary-weather-icon"
-                                    id="primary-icon"
-                                    src="./images/icons/nothing.png"
-                                    alt="weather-icon"
-                                >
-                                <h2 class="city-name" id="current-city">London</h2>
-                                <p id="current-time"></p>
-                                <p class="temperature" id="current-temperature"></p>
-                                <span class="temperature-unit measure" id="temperature-meassure">
-                                    <a id="degreesCelsius" class="active" href="">°C</a>
-                                    |
-                                    <a id="degreesFahr" class="inactive" href="">°F</a>
-                                </span>
-                                <p id="weather-description"></p>
-                                <div class="row">
-                                    <div class="col-12 additional-weather-wrapper">
-                                        <div class="row additional-weather-info">
-                                            <div class="col-6 col-smaller">
-                                                <img class="weather-icon-small" src="images/icons/winds.svg" alt="winds">
-                                                <span class="wind" id="wind-speed"></span>
-                                            </div>
-                                            <div class="col-6 col-smaller">
-                                                <img class="weather-icon-small" src="./images/icons/raindrops.svg" alt="raindrops">
-                                                <span class="chance-of-rain" id="humidity"></span>
-                                            </div>
+                    </div>
+                    <!--Card Top End -->
+                    <!--Card Middle Body Start -->
+                    <!--City not found message start -->
+                    <div class="row">
+                        <div class="col-12 city-error">
+                            <span class="city-not-found"></span>
+                        </div>
+                    </div>
+                    <!--City not found message end -->
+                    <div class="row card-middle-body">
+                        <!--Card Middle Text Start -->
+                        <div class="col-6 text-wrapper">
+                            <img class="primary-weather-icon" id="primary-icon" src="./images/icons/nothing.png"
+                                alt="weather-icon">
+                            <h2 class="city-name" id="current-city">London</h2>
+                            <p id="current-time"></p>
+                            <p class="temperature" id="current-temperature"></p>
+                            <span class="temperature-unit measure" id="temperature-meassure">
+                                <a id="degreesCelsius" class="active" href="">°C</a>
+                                |
+                                <a id="degreesFahr" class="inactive" href="">°F</a>
+                            </span>
+                            <p id="weather-description"></p>
+                            <div class="row">
+                                <div class="col-12 additional-weather-wrapper">
+                                    <div class="row additional-weather-info">
+                                        <div class="col-6 col-smaller">
+                                            <img class="weather-icon-small" src="images/icons/winds.svg" alt="winds">
+                                            <span class="wind" id="wind-speed"></span>
+                                        </div>
+                                        <div class="col-6 col-smaller">
+                                            <img class="weather-icon-small" src="./images/icons/raindrops.svg"
+                                                alt="raindrops">
+                                            <span class="chance-of-rain" id="humidity"></span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!--Card Middle Text End -->
-                            <!--Illustration Start -->
-                            <div class="col-6 illustration-col">
-                                <div class="illustration">
-                                    <img id="main-illustration" src="./images/illustrations/Spinner-0.4s-8px.svg" alt="windy">
-                                </div>
-                                <!--Illustration End -->
+                        </div>
+                        <!--Card Middle Text End -->
+                        <!--Illustration Start -->
+                        <div class="col-6 illustration-col">
+                            <div class="illustration">
+                                <img id="main-illustration" src="./images/illustrations/Spinner-0.4s-8px.svg"
+                                    alt="windy">
                             </div>
+                            <!--Illustration End -->
                         </div>
-                        <!--Card Middle Body End -->
-                        <!--Card Bottom start -->
-                        <div class="card-bottom card-text">
-                            <p class="check-additonal-hours">
-                                Check the weather for next few hours
-                            </p>
-                            <div class="row" id="forecast"></div>
-                        </div>
-                        <!--Card Bottom End -->
                     </div>
-                    <span class="open-source">
-                        <a class="open" target="_blank" href="https://github.com/sintija/get-weather-app"> Open Source</a>
-                        by
-                    Sintija
-                    </span>
+                    <!--Card Middle Body End -->
+                    <!--Card Bottom start -->
+                    <div class="card-bottom card-text">
+                        <p class="check-additonal-hours">
+                            Check the weather for next few hours
+                        </p>
+                        <div class="row" id="forecast"></div>
+                    </div>
+                    <!--Card Bottom End -->
                 </div>
+                <span class="open-source">
+                    <a class="open" target="_blank" href="https://github.com/sintija/get-weather-app"> Open Source</a>
+                    by Sintija
+                </span>
             </div>
-            <!--Card End -->
         </div>
-        <!--Main Container End -->
-        <script src="/src/index.js"></script>
-    </body>
+        <!--Card End -->
+    </div>
+    <!--Main Container End -->
+    <script src="/src/index.js"></script>
+</body>
+
 </html>

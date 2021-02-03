@@ -3,6 +3,7 @@
 // Update the styling of the open source by Sintija
 // Explore the animations on the search button 
 // Find the responsive image to add the schreenshots 
+//maybe fix the styling for degrees so it can only be hovered if not selected
 
 (function () {
 

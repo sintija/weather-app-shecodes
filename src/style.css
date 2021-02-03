@@ -15,6 +15,11 @@ span a {
     color: #67a9f8;
 }
 
+span a:hover {
+    color: #67a9f8;
+
+}
+
 body {
     background-image: linear-gradient(to top,
             #d9afd9 0%,
@@ -23,9 +28,6 @@ body {
     height: 100vh;
 }
 
-.open-source {
-    text-decoration: underline;
-}
 
 #current-city,
 #weather-description {
@@ -129,23 +131,45 @@ body {
     border: 0;
 }
 
+.input-group .form-control:focus {
+    box-shadow: none;
+
+}
+
 .input-group-append .search-button {
     color: #fff;
     background-image: linear-gradient(to top,
-            #a7a6cb 0%,
-            #8989ba 52%,
-            #8989ba 100%);
+            #B9A0FF 0%,
+            #855AFF 52%,
+            #B9A0FF 100%);
     border: none;
     border-radius: none;
-    transition: all 0.5s ease-in-out;
+    cursor: pointer;
 }
 
 .input-group-append .search-button:hover {
     color: #fff;
-    scale: 0.8;
-
-    transform: scale(1.1);
+    box-shadow: rgb(0 0 0 / 10%) 0px 3px 12px 0px;
+    background-image: linear-gradient(to top,
+            #B9A0FF 5%,
+            #855AFF 57%,
+            #B9A0FF 95%);
+    transition: all 0.1s ease-out 0s;
 }
+
+.input-group-append .search-button:active {
+    transform: translateY(2px);
+}
+
+
+.input-group-append .search-button:focus {
+    box-shadow: none;
+}
+
+.button:hover span {
+    display: none
+}
+
 
 /*API details*/
 .active {
@@ -180,6 +204,14 @@ body {
     text-align: center;
 }
 
+.open {
+    text-decoration: underline;
+    color: #2f2c42;
+}
+
+.open:hover {
+    color: #2f2c42c5;
+}
 
 #current-location-addon:hover {
     cursor: pointer;
