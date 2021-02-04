@@ -93,7 +93,7 @@ More comments available in the code.
 # UX
 The website was regularly tested on most devices, and it is designed to fit the majority of screen sizes. Please see the mockups below: 
 
-![mockup](https://github.com/sintija/weather-app-shecodes/blob/master/images/icons/iScreens.png "responsive mocup")
+![mockup](https://github.com/sintija/weather-app-shecodes/blob/master/images/icons/iScreens1.png "responsive mocup")
 
 
 
