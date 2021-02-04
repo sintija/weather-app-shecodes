@@ -1,14 +1,10 @@
-/*Primary styles*/
+/*primary styles*/
 html body,
 span a {
     font-family: "Montserrat", sans-serif;
     color: #2f2c42;
     text-decoration: none;
-    height: 115vh;
 }
-
-
-
 
 span a {
     transition: all 0.2s ease-in;
@@ -17,7 +13,6 @@ span a {
 
 span a:hover {
     color: #67a9f8;
-
 }
 
 body {
@@ -27,7 +22,6 @@ body {
     background-repeat: no-repeat;
     height: 100vh;
 }
-
 
 #current-city,
 #weather-description {
@@ -101,10 +95,7 @@ body {
     text-align: center;
     display: block;
     font-weight: 800;
-
-
 }
-
 
 /*Card image and icon styles*/
 .illustration img {
@@ -133,7 +124,6 @@ body {
 
 .input-group .form-control:focus {
     box-shadow: none;
-
 }
 
 .input-group-append .search-button {
@@ -161,7 +151,6 @@ body {
     transform: translateY(2px);
 }
 
-
 .input-group-append .search-button:focus {
     box-shadow: none;
 }
@@ -170,22 +159,18 @@ body {
     display: none
 }
 
-
 /*API details*/
-.active {
+.active,
+#temperature-meassure .active:hover {
     color: #2f2c42;
     cursor: default;
 }
-
-
 
 /*Additonal weather*/
 .current-location-icon {
     height: 1.5rem;
     border: none;
-
 }
-
 
 .city-error {
     text-align: center;
@@ -196,7 +181,6 @@ body {
     font-size: 0.6rem;
     font-weight: bold;
 }
-
 
 .open-source {
     display: block;
@@ -221,8 +205,15 @@ body {
     height: 1.5rem;
 }
 
+#current-location-addon {
+    border: none;
+    background-image: linear-gradient(to top,
+            #f3e7e9 0%,
+            #e3eeff 99%,
+            #e3eeff 100%);
+}
 
-/*Media Queries */
+/*media queries -responsive fixes */
 
 /*Mobile*/
 @media (max-width: 770px) {
@@ -268,30 +259,15 @@ body {
         padding: 0 2rem;
     }
 
-
     .card-middle-body {
         padding: 0;
     }
 
     html body,
     span a {
-        height: 140vh;
+        height: 170vh;
     }
-
-
-
 }
-
-
-#current-location-addon {
-    border: none;
-    background-image: linear-gradient(to top,
-            #f3e7e9 0%,
-            #e3eeff 99%,
-            #e3eeff 100%);
-}
-
-
 
 /*Desktop*/
 @media (min-width: 780px) {
@@ -305,16 +281,6 @@ body {
 
     .measure {
         margin-left: 0.4rem;
-
-    }
-}
-
-/*Landscape*/
-@media (min-width: 320px) and (max-width: 720px) and (orientation: landscape) {
-
-    html body,
-    span a {
-        height: 170vh;
     }
 
 }

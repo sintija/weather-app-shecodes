@@ -1,10 +1,3 @@
-//Add Read ME file 
-// fix background issues on the firefox 
-// Update the styling of the open source by Sintija
-// Explore the animations on the search button 
-// Find the responsive image to add the schreenshots 
-//maybe fix the styling for degrees so it can only be hovered if not selected
-
 (function () {
 
     //global selectors
@@ -68,14 +61,19 @@
     }
 
     //get the weather from user location
-
     function getWeatherDataFromCoords(position) {
-
         let lat = position.coords.latitude;
         let lon = position.coords.longitude;
         let apiUrl = `${apiEndPoint}lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
 
-        axios.get(apiUrl).then(showTemperature);
+        axios.get(apiUrl).then((response) => {
+            showTemperature(response);
+            getweatherImage(response);
+            apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${response.data.name}&appid=${apiKey}&units=${unit}`;
+            axios.get(apiUrl).then(displayForecast);
+        });
+
+
     }
 
     //get current location 
